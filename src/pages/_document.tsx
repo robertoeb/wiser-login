@@ -42,6 +42,10 @@ export default class MyDocument extends Document {
       <Html lang="pt">
         <Head>
           <meta charSet="utf-8" />
+          <meta
+            name="Description"
+            content="Put your description A simple login page for a frontend test code."
+          ></meta>
 
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link

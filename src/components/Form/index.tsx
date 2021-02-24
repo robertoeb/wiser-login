@@ -55,7 +55,7 @@ const Form: React.FC = () => {
       </h1>
       <p>Para acessar a plataforma, faça seu login.</p>
       <FormWrapper onSubmit={handleSubmit}>
-        <label htmlFor="email">e-mail</label>
+        <label htmlFor="username">e-mail</label>
         <InputWrapper error={error}>
           <input
             type="text"
