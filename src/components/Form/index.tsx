@@ -28,14 +28,13 @@ const Form: React.FC = () => {
     const { name, value, dataset } = e.target
 
     setForm({ ...form, [name || dataset.name]: value || '' })
-    setError(false)
+    e.type === 'click' && setError(false)
   }
 
   const handleSubmit = e => {
-    validateEmail()
     e.preventDefault()
 
-    if (!error) {
+    if (!validateEmail()) {
       dispatch(setLoading(true))
       dispatch(authenticate(form))
     }
@@ -43,8 +42,10 @@ const Form: React.FC = () => {
 
   const validateEmail = () => {
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    const hasError = !emailRegex.test(form.username.toLowerCase())
 
-    setError(!emailRegex.test(form.username.toLowerCase()))
+    setError(hasError)
+    return hasError
   }
 
   return (
