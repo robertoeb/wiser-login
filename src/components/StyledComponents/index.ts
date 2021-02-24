@@ -9,7 +9,7 @@ export const Button = styled.input`
     ${props => props.theme.colors.primary} 0%,
     ${props => props.theme.colors.secondary} 99.18%
   );
-  box-shadow: 0px 10px 25px #cf99db;
+  box-shadow: 0px 10px 25px ${props => props.theme.colors.tertiary};
   border: none;
   border-radius: 8px;
   color: ${props => props.theme.colors.bright};

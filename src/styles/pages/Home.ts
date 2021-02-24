@@ -33,8 +33,8 @@ export const LeftContent = styled.aside`
   height: 100vh;
   background-image: linear-gradient(
       to top,
-      rgba(19, 5, 37, 1),
-      rgba(105, 57, 153, 0)
+      ${props => props.theme.colors.rgbaDark},
+      ${props => props.theme.colors.rgbalight}
     ),
     url(${background});
   background-repeat: no-repeat;
@@ -61,7 +61,7 @@ export const MainContent = styled.main`
   ${media.lessThan('small')`
     width: 100%;
     height: 50vh;
-    background: #130525;
+    background: ${props => props.theme.colors.darkest};
   `}
 `
 
@@ -158,7 +158,7 @@ export const Button = styled.input`
     ${props => props.theme.colors.primary} 0%,
     ${props => props.theme.colors.secondary} 99.18%
   );
-  box-shadow: 0px 10px 25px #cf99db;
+  box-shadow: 0px 10px 25px ${props => props.theme.colors.tertiary};
   border: none;
   border-radius: 8px;
   color: ${props => props.theme.colors.bright};
