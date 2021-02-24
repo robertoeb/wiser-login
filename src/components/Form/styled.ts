@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
 
+import { Button } from '../StyledComponents/index'
 interface InputWrapperProps {
   error?: boolean | void
+}
+
+interface ErrorProps {
+  center?: boolean | void
 }
 
 export const FormWrapper = styled.form`
@@ -50,42 +55,18 @@ export const InputWrapper = styled.div<InputWrapperProps>`
     cursor: pointer;
     color: ${props => props.error && props.theme.colors.error};
   }
-
-  p {
-    font-size: 10px;
-    font-weight: 400;
-    margin-left: 8px;
-    color: ${props => props.theme.colors.error};
-    text-align: left;
-  }
+`
+export const Error = styled.p<ErrorProps>`
+  font-size: 10px !important;
+  font-weight: 400 !important;
+  margin-left: ${props => (props.center ? '0' : '8px')};
+  color: ${props => props.theme.colors.error};
+  text-align: ${props => (props.center ? 'center' : 'left')};
 `
 
-export const Button = styled.input`
-  height: 48px;
-  margin-top: 24px;
-  background: linear-gradient(
-    to left,
-    ${props => props.theme.colors.primary} 0%,
-    ${props => props.theme.colors.secondary} 99.18%
-  );
-  box-shadow: 0px 10px 25px #cf99db;
-  border: none;
-  border-radius: 8px;
-  color: ${props => props.theme.colors.bright};
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  text-transform: uppercase;
-  transition: opacity 1s ease-out;
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.9;
-  }
-
+export const SubmitButton = styled(Button)`
   ${media.lessThan('small')`
-    width: 160px;
+    width: 160px !important;
     align-self: center;
     box-shadow: none;
     position: absolute;

@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, shallowEqual, useSelector } from 'react-redux'
+import { setLogin } from '../../store/ducks/auth'
+import { setLoading } from '../../store/ducks/loading'
 
 import { authenticate } from '../../store/fetchActions'
 
-import { FormWrapper, InputWrapper, Button, FormHelper } from './styled'
+import {
+  FormWrapper,
+  InputWrapper,
+  Error,
+  SubmitButton,
+  FormHelper
+} from './styled'
 
 const Form: React.FC = () => {
   const [form, setForm] = useState({ username: '', password: '' })
-  const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
 
   const user = useSelector(state => state.user, shallowEqual)
+  const loading = useSelector(state => state.loading, shallowEqual)
+  const loginError = useSelector(state => state.auth.loginError, shallowEqual)
   const dispatch = useDispatch()
+
+  useEffect(() => dispatch(setLoading(false)), [])
 
   const handleInput = e => {
     const { name, value, dataset } = e.target
@@ -22,10 +33,12 @@ const Form: React.FC = () => {
 
   const handleSubmit = e => {
     validateEmail()
-    setLoading(true)
     e.preventDefault()
 
-    dispatch(authenticate(form))
+    if (!error) {
+      dispatch(setLoading(true))
+      dispatch(authenticate(form))
+    }
   }
 
   const validateEmail = () => {
@@ -34,10 +47,12 @@ const Form: React.FC = () => {
     setError(!emailRegex.test(form.username.toLowerCase()))
   }
 
-  useEffect(() => setLoading(false), [user])
-
   return (
     <>
+      <h1>
+        Olá, seja <br /> bem-vindo!
+      </h1>
+      <p>Para acessar a plataforma, faça seu login.</p>
       <FormWrapper onSubmit={handleSubmit}>
         <label htmlFor="email">e-mail</label>
         <InputWrapper error={error}>
@@ -56,7 +71,7 @@ const Form: React.FC = () => {
               &times;
             </span>
           )}
-          {error && <p>Digite um e-mail válido</p>}
+          {error && <Error>Digite um e-mail válido</Error>}
         </InputWrapper>
         <label htmlFor="password">senha</label>
         <InputWrapper>
@@ -75,7 +90,13 @@ const Form: React.FC = () => {
             </span>
           )}
         </InputWrapper>
-        <Button
+        {loginError && (
+          <Error center>
+            Falha ao tentar logar!
+            <br /> Tente novamente mais tarde.
+          </Error>
+        )}
+        <SubmitButton
           type="submit"
           value="entrar"
           disabled={

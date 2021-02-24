@@ -1,5 +1,6 @@
 import api from '../../services/api'
-import { setLogin } from '../ducks/auth'
+import { setError, setLogin } from '../ducks/auth'
+import { setLoading } from '../ducks/loading'
 import { setUser } from '../ducks/user'
 
 interface PayloadInterface {
@@ -15,6 +16,9 @@ export const authenticate = (payload: PayloadInterface) => {
         dispatch(setUser(res.data))
         dispatch(setLogin())
       })
-      .catch(err => err)
+      .catch(() => {
+        dispatch(setLoading(false))
+        dispatch(setError(true))
+      })
   }
 }

@@ -1,16 +1,23 @@
 import React from 'react'
 import Head from 'next/head'
+import { shallowEqual, useSelector } from 'react-redux'
 
 import {
   Container,
   LeftContent,
   MainContent,
-  MainWrapper
+  MainWrapper,
+  Spinner,
+  SpinnerContainer
 } from '../styles/pages/Home'
 
 import Form from '../components/Form'
+import Profile from '../components/Profile'
 
 const Home: React.FC = () => {
+  const loading = useSelector(state => state.loading, shallowEqual)
+  const { isAuthenticated } = useSelector(state => state.auth, shallowEqual)
+
   return (
     <Container>
       <Head>
@@ -19,13 +26,12 @@ const Home: React.FC = () => {
 
       <LeftContent />
       <MainContent>
-        <MainWrapper>
-          <h1>
-            Olá, seja <br /> bem-vindo!
-          </h1>
-          <p>Para acessar a plataforma, faça seu login.</p>
-          <Form />
-        </MainWrapper>
+        {loading && (
+          <SpinnerContainer>
+            <Spinner />
+          </SpinnerContainer>
+        )}
+        <MainWrapper>{isAuthenticated ? <Profile /> : <Form />}</MainWrapper>
       </MainContent>
     </Container>
   )

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import media from 'styled-media-query'
 
 import background from '../../assets/background.png'
@@ -99,7 +99,7 @@ export const MainWrapper = styled.div`
         font-size: 10px !important;
       }
     }
-  `}
+  `};
 `
 
 export const FormWrapper = styled.form`
@@ -179,5 +179,45 @@ export const Button = styled.input`
     box-shadow: none;
     position: absolute;
     bottom: -24px;
+  `}
+`
+
+const rotate360 = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`
+
+export const Spinner = styled.div`
+  animation: ${rotate360} 1s linear infinite;
+  transform: translateZ(0);
+
+  border-top: 2px solid ${props => props.theme.colors.secondary};
+  border-right: 2px solid ${props => props.theme.colors.secondary};
+  border-bottom: 2px solid ${props => props.theme.colors.secondary};
+  border-left: 4px solid ${props => props.theme.colors.primary};
+  background: transparent;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: auto;
+`
+export const SpinnerContainer = styled.div`
+  display: flex;
+  position: absolute;
+  z-index: 100;
+  background: ${props => props.theme.colors.background};
+  height: 100vh;
+  width: 50%;
+  opacity: 0.6;
+  justify-self: flex-end;
+
+  ${media.lessThan('small')`
+    width: 100%;
+    height: 100vh;
+    top: 0;
   `}
 `
