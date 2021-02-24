@@ -1,7 +1,7 @@
 import styled, { keyframes } from 'styled-components'
 import media from 'styled-media-query'
 
-import background from '../../assets/background.png'
+import background from '../../assets/background.webp'
 
 export const Container = styled.div`
   width: 100vw;

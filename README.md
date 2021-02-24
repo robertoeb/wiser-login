@@ -1,34 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ZSSN (Zombie Survival Social Network)
 
-## Getting Started
+## Problem Description
 
-First, run the development server:
+Create a login application, that is, user access.
 
-```bash
-npm run dev
+The operation is simple: when filling in email and password, an alert must be defined with success or error. We will also have validation of correct filling in the field of text.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Live Version](#live-version)
+- [Another Infos](#another-infos)
+- [Credits](#credits)
+
+## Installation
+
+**Dependention note**: Before installation make sure to have node >= 12 and NPM or Yarn installed and up.
+
+1. Clone the project.
+
+   ```sh
+   $ git clone https://github.com/robertoeb/wiser-login.git
+   ```
+
+2. Open the project folder and install the depencies
+
+   ```sh
+   $ cd wiser-login
+   $ yarn install
+   # or
+   $ npm install
+   ```
+
+3. Start the application
+
+```sh
+$ npm run dev
 # or
-yarn dev
+$ yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Application will be runing at [localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Live Version
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+You can test a live version of the API using a URL [https://wiser-login.robertoeb.com/](https://wiser-login.robertoeb.com/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Another Infos
 
-## Learn More
+Any valid email and password should be work on the login screen.
 
-To learn more about Next.js, take a look at the following resources:
+## Screens
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Mobile:
+![image](https://user-images.githubusercontent.com/17416185/108966882-888e5f00-765d-11eb-8772-42dc9265fb44.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Tablet:
+![image](https://user-images.githubusercontent.com/17416185/108966924-9a700200-765d-11eb-8579-b348592b31a0.png)
 
-## Deploy on Vercel
+Desktop:
+![image](https://user-images.githubusercontent.com/17416185/108967014-b673a380-765d-11eb-9936-953df0ad5e10.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Credits
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Roberto E. B. Junior](https://robertoeb.com)
