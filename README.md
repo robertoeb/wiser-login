@@ -1,4 +1,4 @@
-# ZSSN (Zombie Survival Social Network)
+# Wiser Login (A frontend code test)
 
 ## Problem Description
 
@@ -53,12 +53,15 @@ Any valid email and password should be work on the login screen.
 ## Screens
 
 Mobile:
+
 ![image](https://user-images.githubusercontent.com/17416185/108966882-888e5f00-765d-11eb-8772-42dc9265fb44.png)
 
 Tablet:
+
 ![image](https://user-images.githubusercontent.com/17416185/108966924-9a700200-765d-11eb-8579-b348592b31a0.png)
 
 Desktop:
+
 ![image](https://user-images.githubusercontent.com/17416185/108967014-b673a380-765d-11eb-9936-953df0ad5e10.png)
 
 ## Credits
