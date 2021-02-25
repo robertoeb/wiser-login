@@ -19,11 +19,13 @@ const Profile: React.FC = () => {
   }
 
   return (
-    <Container>
+    <Container id="profile">
       <Avatar src={avatar} alt="" />
       <h1>{name}</h1>
       <p>{email}</p>
-      <Button type="button" value="sair" onClick={handleLogout} />
+      <Button type="button" onClick={handleLogout}>
+        sair
+      </Button>
     </Container>
   )
 }

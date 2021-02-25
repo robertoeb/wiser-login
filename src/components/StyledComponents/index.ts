@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Button = styled.input`
+export const Button = styled.button`
   height: 48px;
   width: 100%;
   margin-top: 24px;

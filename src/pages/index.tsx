@@ -27,7 +27,7 @@ const Home: React.FC = () => {
       <LeftContent />
       <MainContent>
         {loading && (
-          <SpinnerContainer>
+          <SpinnerContainer id="loading">
             <Spinner />
           </SpinnerContainer>
         )}

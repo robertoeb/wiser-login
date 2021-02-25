@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, shallowEqual, useSelector } from 'react-redux'
-import { setLogin } from '../../store/ducks/auth'
 import { setLoading } from '../../store/ducks/loading'
 
 import { authenticate } from '../../store/fetchActions'
@@ -17,7 +16,6 @@ const Form: React.FC = () => {
   const [form, setForm] = useState({ username: '', password: '' })
   const [error, setError] = useState(false)
 
-  const user = useSelector(state => state.user, shallowEqual)
   const loading = useSelector(state => state.loading, shallowEqual)
   const loginError = useSelector(state => state.auth.loginError, shallowEqual)
   const dispatch = useDispatch()
@@ -99,11 +97,12 @@ const Form: React.FC = () => {
         )}
         <SubmitButton
           type="submit"
-          value="entrar"
           disabled={
             loading || !form.username.length || !form.password.length || error
           }
-        />
+        >
+          entrar
+        </SubmitButton>
       </FormWrapper>
       <FormHelper>
         Esqueceu seu login ou senha?
