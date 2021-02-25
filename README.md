@@ -64,6 +64,20 @@ Desktop:
 
 ![image](https://user-images.githubusercontent.com/17416185/108967014-b673a380-765d-11eb-9936-953df0ad5e10.png)
 
+## Testing with Cypress
+
+To execute the tests just run the tests with Cypress
+
+1. Execute all tests.
+
+   ```sh
+   $ yarn test
+   # or
+   $ npm run test
+   ```
+
+2. Click on avaiable integration test
+
 ## Credits
 
 - [Roberto E. B. Junior](https://robertoeb.com)
